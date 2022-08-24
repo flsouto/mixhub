@@ -1,0 +1,16 @@
+services:
+ mongo:
+  image: mongo:4.2
+  ports:
+   - "27017:27017"
+  volumes:
+   - ./db:/data/db
+ node:
+  build: ./src
+  stdin_open: true
+  tty: true
+  ports:
+   - "80:80"
+  volumes:
+   - ./src:/src
+   - ./files:/files
